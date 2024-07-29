@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/navbar') %>
+    <meta charset="UTF-8">
+    <title>Staff Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="center-content">
+    <h1 style="color:black"></style>Staff Management</h1><br>
+    <h2>Staff Members</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% staff.forEach(member => { %>
+            <tr>
+                <td><%= member.username %></td>
+                <td><%= member.email %></td>
+                <td>
+                    <form action="/delete-user" method="post" style="display: inline;">
+                        <input type="hidden" name="userType" value="staff">
+                        <input type="hidden" name="username" value="<%= member.username %>">
+                        <button type="submit">Delete</button>
+                    </form>
+                    <form action="/update-staff" method="post" style="display: inline;">
+                        <input type="hidden" name="username" value="<%= member.username %>">
+                        <input type="text" name="newUsername" placeholder="New Username" required>
+                        <input type="email" name="newEmail" placeholder="New Email" required>
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <h2>Add Staff Member</h2>
+    <form action="/add-staff" method="post">
+        <label for="staffUsername">Username:</label>
+        <input type="text" name="staffUsername" required>
+        <label for="staffEmail">Email:</label>
+        <input type="email" name="staffEmail" required>
+        <label for="staffPassword">Password:</label>
+        <input type="password" name="staffPassword" required>
+        <button type="submit">Add Staff</button>
+    </form>
+    <br>
+    <h2 style="color:black"></style>Users Management</h2><br>
+    <h2>Users</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(user => { %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.username %></td>
+                <td><%= user.email %></td>
+                <td>
+                    <form action="/delete-user" method="post" style="display: inline;">
+                        <input type="hidden" name="userType" value="user">
+                        <input type="hidden" name="username" value="<%= user.username %>">
+                        <button type="submit">Delete</button>
+                    </form>
+                    <form action="/update-user" method="post" style="display: inline;">
+                        <input type="hidden" name="userId" value="<%= user.id %>">
+                        <input type="text" name="newUsername" placeholder="New Username" required>
+                        <input type="email" name="newEmail" placeholder="New Email" required>
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

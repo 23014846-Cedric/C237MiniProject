@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <% include('partials/navbar') %>
+    
+    <div class="container">
+        <h1 class="text-center">Transaction History</h1>
+        <ul class="list-group mt-4">
+            <% transactions.slice().reverse().forEach(transaction => { %> <!-- Reverse order here -->
+                <li class="list-group-item">
+                    <strong>Date:</strong> <%= transaction.date %><br>
+                    <strong>Amount:</strong> <%= transaction.amount %><br>
+                    <strong>Description:</strong> <%= transaction.description %><br>
+                    <form action="/transactions/<%= transaction.id %>" method="POST">
+                        <button type="submit" class="btn btn-danger mt-2">Delete</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+
+    <div class="container text-center mt-4">
+        <a href="/wallet" class="btn btn-secondary mx-2">Back to Wallet</a>
+        <a href="/topup" class="btn btn-primary mx-2">Top Up</a>
+        <a href="/transactions" class="btn btn-info mx-2">Transactions</a>
+        <a href="/transfer" class="btn btn-success mx-2">Transfer Funds</a>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <br><br><br><br><br><br><br><br><br>
+    <%- include('partials/footer') %>
+</body>
+
+</html>

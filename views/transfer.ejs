@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Funds</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+
+    <div class="container">
+        <h1>Transfer Funds</h1>
+        <form action="/transfer" method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="toWalletNumber">To Wallet Number</label>
+                <input type="text" id="toWalletNumber" name="toWalletNumber" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="float" id="amount" name="amount" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Transfer</button>
+        </form>
+    </div>
+    <div class="container text-center mt-4">
+        <a href="/wallet" class="btn btn-secondary mx-2">Back to Wallet</a>
+        <a href="/topup" class="btn btn-primary mx-2">Top Up</a>
+        <a href="/transactions" class="btn btn-info mx-2">Transactions</a>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <br><br><br><br><br><br>
+    <%- include('partials/footer') %>
+</body>
+
+</html>

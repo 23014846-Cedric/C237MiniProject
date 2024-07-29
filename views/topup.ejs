@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Up Your Wallet</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .topup-form .btn-primary {
+      margin-left: -20px; 
+    }
+  </style>
+</head>
+
+<body>
+  <% include('partials/navbar') %>
+
+  <div class="container">
+    <h1>Top Up Your Wallet</h1>
+    <form action="/topup" method="POST" class="topup-form">
+      <div class="input-group">
+        <label for="cardNumber">Credit Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" required>
+      </div>
+      <div class="input-group">
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" name="cvv" required>
+      </div>
+      <div class="input-group">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" name="amount" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Top Up</button>
+    </form>
+
+    <!-- Button to go back to wallet page -->
+    <a href="/wallet" class="btn btn-secondary mt-3">Back to Wallet</a>
+  </div>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <br><br><br><br><br><br><br><br>
+  <%- include('partials/footer') %>
+</body>
+
+</html>

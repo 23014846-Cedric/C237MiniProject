@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- Include navbar at the top of the body -->
+    <%- include('partials/navbar') %>
+
+    <!-- Main content -->
+    <div class="container text-center">
+        <h1 class="my-4">Your Wallet</h1>
+        <!-- Image above wallet information -->
+        <img src="/images/Credit card temp.png" alt="Credit Card" class="img-fluid mb-4" style="max-width: 300px;">
+        <!-- Display balance -->
+        <p class="font-weight-bold mb-2">Current Balance: $<%= balance %></p>
+        <p>Wallet Number: <%= walletNumber %></p>
+        <!-- Buttons for top-up, transactions, and transfer funds -->
+        <div class="mt-4">
+            <a href="/topup" class="btn btn-primary mr-2">Top Up</a>
+            <a href="/transactions" class="btn btn-info mr-2">Transactions</a>
+            <a href="/transfer" class="btn btn-success">Transfer Funds</a>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <br><br><br><br><br><br>
+    <%- include('partials/footer') %>
+</body>
+</html>
