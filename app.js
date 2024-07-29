@@ -9,18 +9,26 @@ app.use(express.json());
 
 // MySQL connection for user_info database
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Republic_C207',
-  database: 'user_info'
+  //host: 'localhost',
+  //user: 'root',
+  //password: 'Republic_C207',
+  //database: 'user_info'
+  host: `db4free.net`,
+  user: `bankdb`,
+  password: `Pa55word`,
+  database: `bankdb100`
 });
 
 // MySQL connection for bank_database
 const bankConnection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Republic_C207',
-  database: 'bank_database'
+  //host: 'localhost',
+  //user: 'root',
+  //password: 'Republic_C207',
+  //database: 'bank_database'
+  host: `db4free.net`,
+  user: `bankdb`,
+  password: `Pa55word`,
+  database: `bankdb100`
 });
 
 // Function to parse cookies
